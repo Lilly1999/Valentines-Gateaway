@@ -15,27 +15,27 @@ export default function ValentinesAirbnbBooking() {
 
   const moveNoButton = () => {
     setNoButtonAttempts(prev => prev + 1);
-    
+
     // Hide the No button after 6 attempts
     if (noButtonAttempts >= 5) {
       setShowNoButton(false);
       setYesButtonSize(1.8);
       return;
     }
-    
+
     const maxX = window.innerWidth - 200;
     const maxY = window.innerHeight - 100;
     const newX = Math.random() * maxX;
     const newY = Math.random() * maxY;
     setNoButtonPosition({ x: newX, y: newY });
-    
+
     // Grow the Yes button each time
     setYesButtonSize(prev => Math.min(1.8, prev + 0.15));
   };
 
   const handleYesClick = () => {
     setShowSuccess(true);
-    
+
     // Trigger confetti
     const duration = 3000;
     const animationEnd = Date.now() + duration;
@@ -76,45 +76,32 @@ export default function ValentinesAirbnbBooking() {
 
   if (showSuccess) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-pink-100 via-red-50 to-pink-200 flex items-center justify-center p-6">
-        <Card className="max-w-2xl w-full shadow-2xl border-4 border-pink-300 animate-in zoom-in duration-700">
-          <CardContent className="p-12 text-center">
+      <div className="min-h-[80vh] bg-gradient-to-br from-pink-100 via-red-50 to-pink-200 flex items-center justify-center p-6">
+        <Card className="max-w-md w-full shadow-2xl border-4 border-red-300 animate-in zoom-in duration-700">
+          <CardContent className="p-4 text-center">
             <div className="mb-8 animate-bounce">
               <Heart className="w-24 h-24 mx-auto text-red-500 fill-red-500" />
             </div>
-            
-            <h1 className="text-5xl font-bold text-pink-600 mb-6" style={{ fontFamily: 'Pacifico, cursive' }}>
+
+            <h1 className="text-3xl font-bold text-red-600 mb-4" style={{ fontFamily: 'Pacifico, cursive' }}>
               Yay! 🎉
             </h1>
-            
+
             <img
-              src="https://mgx-backend-cdn.metadl.com/generate/images/934522/2026-02-04/3034c621-7015-4fb6-b12c-ab75ef9d8f39.png"
+              src="/uploads/3034c621-7015-4fb6-b12c-ab75ef9d8f39.png"
               alt="Romantic Airbnb unit"
-              className="w-64 h-64 mx-auto rounded-3xl shadow-xl mb-8 object-cover"
+              className="w-56 h-56 mx-auto rounded-3xl shadow-xl mb-6 object-cover"
             />
-            
-            <div className="mb-8">
-              <iframe
-                width="560"
-                height="315"
-                src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                title="Romantic Getaway Video"
-                frameBorder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                allowFullScreen
-                className="w-full max-w-md mx-auto rounded-3xl shadow-xl"
-              ></iframe>
-            </div>
-            
-            <h2 className="text-3xl font-bold text-gray-800 mb-4">
+
+            <h2 className="text-2xl font-bold text-gray-800 mb-3">
               Your Romantic Getaway Awaits! 💕
             </h2>
             
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-lg text-gray-600 mb-6">
               Get ready for the most amazing Valentine's Day weekend at our Airbnb unit in Tsavo Roysambu!
             </p>
-            
-            <div className="bg-pink-50 rounded-2xl p-6 mb-8 border-2 border-pink-200">
+
+            <div className="bg-pink-50 rounded-2xl p-4 mb-6 border-2 border-pink-200">
               <div className="flex items-center justify-center gap-3 mb-4">
                 <Calendar className="w-6 h-6 text-pink-600" />
                 <p className="text-lg font-semibold text-gray-700">
@@ -128,8 +115,8 @@ export default function ValentinesAirbnbBooking() {
                 </p>
               </div>
             </div>
-            
-            <div className="space-y-3 text-left bg-white rounded-xl p-6 mb-8 shadow-inner">
+
+            <div className="space-y-2 text-left bg-white rounded-xl p-4 mb-6 shadow-inner">
               <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">
                 What's Included: ✨
               </h3>
@@ -162,18 +149,23 @@ export default function ValentinesAirbnbBooking() {
                 Roof terrace / outdoor spaces
               </p>
             </div>
-            
-            <div className="mt-6 text-center bg-pink-50 rounded-xl p-4 border-2 border-pink-200">
+
+            <div className="mt-4 text-center bg-pink-50 rounded-xl p-3 border-2 border-pink-200">
               <h4 className="text-lg font-semibold text-gray-800 mb-2 flex items-center justify-center gap-2">
                 <Heart className="w-5 h-5 text-pink-500" />
                 Contact Us for Your Romantic Escape! 💕
               </h4>
               <p className="text-gray-600 flex items-center justify-center gap-2 mb-1">
-                📞 Phone: 0728357775
+                📞 Phone: 0728357775 —
+                <a
+                  href="https://wa.me/254728357775"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-green-600 hover:underline"
+                >
+                  Chat on WhatsApp
+                </a>
               </p>
-              {/* <p className="text-gray-600 flex items-center justify-center gap-2">
-                📧 Email: love@tsavoroysambu.com
-              </p> */}
               <p className="text-sm text-pink-600 mt-2 italic">
                 Ready to make memories? Give us a call! 🌹
               </p>
@@ -185,7 +177,7 @@ export default function ValentinesAirbnbBooking() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-pink-100 via-red-50 to-pink-200 flex items-center justify-center p-6 relative overflow-hidden">
+    <div className="min-h-[80vh] bg-gradient-to-br from-pink-100 via-red-50 to-pink-200 flex items-center justify-center p-6 relative overflow-hidden">
       {/* Floating hearts background */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
         {[...Array(20)].map((_, i) => (
@@ -204,25 +196,25 @@ export default function ValentinesAirbnbBooking() {
         ))}
       </div>
 
-      <Card className="max-w-2xl w-full shadow-2xl border-4 border-pink-300 relative z-10 animate-in zoom-in duration-700">
-        <CardContent className="p-12 text-center">
-          <h1 
-            className="text-6xl font-bold text-pink-600 mb-8 animate-pulse" 
+      <Card className="max-w-lg w-full shadow-2xl border-4 border-red-300 relative z-10 animate-in zoom-in duration-700">
+        <CardContent className="p-6 text-center">
+          <h1
+            className="text-4xl font-bold text-red-600 mb-6 animate-pulse"
             style={{ fontFamily: 'Pacifico, cursive' }}
           >
             Will You Book Our
             <br />
             Valentine's Getaway? 💕
           </h1>
-          
+
           <img
-            src="https://mgx-backend-cdn.metadl.com/generate/images/934522/2026-02-04/2e705c2c-ac08-4097-84ff-e25bce041405.png"
-            alt="Romantic couple"
-            className="w-80 h-80 mx-auto rounded-3xl shadow-xl mb-8 object-cover transform hover:scale-105 transition-transform duration-300"
+            src="/uploads/valentine-flyer.jpg"
+            alt="Romantic collage"
+            className="w-56 h-56 mx-auto rounded-3xl shadow-xl mb-6 object-cover transform hover:scale-105 transition-transform duration-300"
           />
           
           <p className="text-2xl text-gray-700 mb-12 font-medium">
-            A romantic cabin retreat awaits you this Valentine's Day! 
+            Escape Into Romance This Valentine’s Day.
             <br />
             <span className="text-pink-600 font-bold">Will you say yes?</span>
           </p>
@@ -239,7 +231,7 @@ export default function ValentinesAirbnbBooking() {
             >
               Yes! 💖
             </Button>
-            
+
             {showNoButton && noButtonPosition.x === 0 && (
               <Button
                 onMouseEnter={moveNoButton}
@@ -252,7 +244,7 @@ export default function ValentinesAirbnbBooking() {
               </Button>
             )}
           </div>
-          
+
           {showNoButton ? (
             <p className="mt-8 text-gray-500 text-sm italic">
               Psst... the "No" button is shy! 😉
